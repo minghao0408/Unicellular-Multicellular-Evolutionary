@@ -67,7 +67,7 @@ Execute the program with the following command-line arguments:
 7.  `1`: Mutation enabled (1=True, 0=False).
 8.  `5`: Reproduction threshold ($B_{max}$ scaled, see Implementation Note below).
 
-> **Note on Resource Size:** To change the resource patch diameter ($\phi$), modify the `startingvarfoodpatch` variable directly in `main.c` (around line 180) and recompile.
+> **Note on Resource Size:** To change the resource patch diameter ($\phi$), modify the `startingvarfoodpatch` variable directly in `main.c` (around line 138) and recompile.
 
 ### 3\. Visualization
 
