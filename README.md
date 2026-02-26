@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-This repository contains a comprehensive reproduction and analysis of the computational model described in the paper:
+This repository contains a computational model described in the paper:
 
 > **"Unicellular–multicellular evolutionary branching driven by resource limitations"** > *Adriano Bonforti & Ricard Solé (2022), Journal of The Royal Society Interface*
 
@@ -21,8 +21,8 @@ The transition from unicellular to multicellular life is a major evolutionary mi
 ## Repository Structure
 
 * **`main.c`**: The core simulation engine written in C. It handles the physics (Metropolis algorithm), metabolism, and evolutionary logic. Refactored for clarity and efficiency.
-* **`paper_figure_reproduction.m`**: MATLAB script to analyze data and generate the mean adhesion evolution plots (reproducing Figure 2 & 3 of the original paper).
-* **`paper_figure_reproduction2.m`**: MATLAB script to visualize evolutionary branching trees and spatial snapshots (reproducing Figure 4 & 5).
+* **`paper_figure_reproduction.m`**: MATLAB script to analyze data and generate the mean adhesion evolution plots.
+* **`paper_figure_reproduction2.m`**: MATLAB script to visualize evolutionary branching trees and spatial snapshots.
 
 ---
 
@@ -79,25 +79,3 @@ After running the simulation, two data files will be generated in the root direc
 Run the provided MATLAB scripts (`.m` files) to process these files and visualize the results.
 
 -----
-
-## ⚠️ Important Implementation Note
-
-### Parameter Rescaling: Code vs. Paper
-
-Users should be aware of a numerical scaling difference between the theoretical framework described in the original paper and the actual C code implementation.
-
-To ensure numerical stability and computational efficiency, the code employs an **Energy Rescaling Factor of 100**. This means internal energy values in the simulation are 100x larger than the theoretical units in the paper.
-
-| Parameter | Paper Value (Theory) | Code Value (Implementation) | Notes |
-| :--- | :--- | :--- | :--- |
-| **Resource Consumption ($\xi_R$)** | 0.001 | **0.01** | `xi_par` in code |
-| **Min. Biomass ($B_{min}$)** | 0.01 | **1.0** | Scaled by 100 |
-| **Reproduction Threshold ($B_{max}$)** | 0.05 | **5.0** | Scaled by 100 |
-| **Mutation Std Dev ($\sigma_m$)** | 0.005 | **0.1** | Increased to accelerate evolution |
-
-**Conclusion:** This rescaling is linear and preserves the qualitative evolutionary dynamics described in the report.
-
-This project was completed as part of the *Physical Methods for Biology* course (2025).
-
-```
-```
